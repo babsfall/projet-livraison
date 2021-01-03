@@ -1,0 +1,63 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      lang="eng"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      >
+    <h:head>
+        <title>Login V15</title>
+        <meta charset="UTF-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1"/>
+        <!--===============================================================================================-->	
+        <link rel="icon" type="image/png" href="../images/icons/favicon.ico"/>
+        <!--===============================================================================================-->
+        <link rel="stylesheet" type="text/css" href="../../vendor/bootstrap/css/bootstrap.min.css"/>
+        <!--===============================================================================================-->
+        <link rel="stylesheet" type="text/css" href="../fonts/font-awesome-4.7.0/css/font-awesome.min.css"/>
+        <!--===============================================================================================-->
+        <link rel="stylesheet" type="text/css" href="../fonts/Linearicons-Free-v1.0.0/icon-font.min.css"/>
+        <!--===============================================================================================-->
+        <link rel="stylesheet" type="text/css" href="../../vendor/animate/animate.css"/>
+        <!--===============================================================================================-->	
+        <link rel="stylesheet" type="text/css" href="../../vendor/css-hamburgers/hamburgers.min.css"/>
+        <!--===============================================================================================-->
+        <link rel="stylesheet" type="text/css" href="../../vendor/animsition/css/animsition.min.css"/>
+        <!--===============================================================================================-->
+        <link rel="stylesheet" type="text/css" href="../../vendor/select2/select2.min.css"/>
+        <!--===============================================================================================-->	
+        <link rel="stylesheet" type="text/css" href="../../vendor/daterangepicker/daterangepicker.css"/>
+        <!--===============================================================================================-->
+        <link rel="stylesheet" type="text/css" href="../css/util.css"/>
+        <link rel="stylesheet" type="text/css" href="../css/main.css"></link>
+        <!--===============================================================================================-->
+    </h:head>
+    <h:body>
+        <h:form>
+
+            <h:outputLabel for="Login" value="Login"/>
+            <h:inputText id="Login" value="#{ulmb.loginbean}" class="form-control" required="true" requiredMessage="Renseignez votre login svp" style=" width: 80%" > 
+                <!-- validatorMessage="entrer 6 caracteres au moins">
+    <f:validateLength minimum="6"/>--> </h:inputText>
+            <h:message for="Login" style="color: #009999"/>
+            <br/>
+            <br/>
+            
+            <h:outputLabel for="password" value="Password"/>
+            <h:inputSecret id="password" value="#{ulmb.passwordbean}" class="form-control" required="true" requiredMessage="Renseignez votre mot de passe svp" style=" width: 80%" > 
+            </h:inputSecret>
+            <h:message for="password" style="color: #009999"/>
+            <br/>
+
+           
+            <h:commandButton class="btn btn-sm btn-primary btn-lg" action="#{ulmb.actionLogUser}" value="Se Connecter" />
+
+            <br/>
+             <br/>
+           <h:link value="Créer un compte ?" outcome="indexUserInscription"/>
+ <br/>
+        </h:form>
+
+    </h:body>
+</html>

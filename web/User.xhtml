@@ -1,0 +1,102 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      lang="eng"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      >
+    <h:head>
+        <title>Login V15</title>
+        <meta charset="UTF-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1"/>
+        <!--===============================================================================================-->	
+        <link rel="icon" type="image/png" href="../images/icons/favicon.ico"/>
+        <!--===============================================================================================-->
+        <link rel="stylesheet" type="text/css" href="../../vendor/bootstrap/css/bootstrap.min.css"/>
+        <!--===============================================================================================-->
+        <link rel="stylesheet" type="text/css" href="../fonts/font-awesome-4.7.0/css/font-awesome.min.css"/>
+        <!--===============================================================================================-->
+        <link rel="stylesheet" type="text/css" href="../fonts/Linearicons-Free-v1.0.0/icon-font.min.css"/>
+        <!--===============================================================================================-->
+        <link rel="stylesheet" type="text/css" href="../../vendor/animate/animate.css"/>
+        <!--===============================================================================================-->	
+        <link rel="stylesheet" type="text/css" href="../../vendor/css-hamburgers/hamburgers.min.css"/>
+        <!--===============================================================================================-->
+        <link rel="stylesheet" type="text/css" href="../../vendor/animsition/css/animsition.min.css"/>
+        <!--===============================================================================================-->
+        <link rel="stylesheet" type="text/css" href="../../vendor/select2/select2.min.css"/>
+        <!--===============================================================================================-->	
+        <link rel="stylesheet" type="text/css" href="../../vendor/daterangepicker/daterangepicker.css"/>
+        <!--===============================================================================================-->
+        <link rel="stylesheet" type="text/css" href="../css/util.css"/>
+        <link rel="stylesheet" type="text/css" href="../css/main.css"></link>
+        <!--===============================================================================================-->
+    </h:head>
+    <h:body>
+        <h:form>
+
+            <h:outputLabel for="nomuser" value="nom utilisateur"/>
+            <h:inputText id="nomuser" value="#{umb.nomUserbean}" class="form-control" required="true" requiredMessage="Renseignez la nature de l'événement sv^p" style=" width: 70%" > 
+                <!-- validatorMessage="entrer 6 caracteres au moins">
+    <f:validateLength minimum="6"/>--> </h:inputText>
+            <h:message for="nomuser" style="color: #009999"/>
+            <br/>
+            <br/>
+            
+            <h:outputLabel for="prenom" value="prenom User"/>
+            <h:inputText id="prenom" value="#{umb.prenomUserbean}" class="form-control" required="true" requiredMessage="entrer le prenom svpe" style=" width: 70%" > 
+            </h:inputText>
+            <h:message for="prenom" style="color: #009999"/>
+            <br/>
+            
+            <h:outputLabel for="login" value="login user"/>
+            <h:inputText id="login" value="#{umb.loginbean}" class="form-control" required="true" requiredMessage="entrer le login svp" style=" width: 70%" > 
+            </h:inputText>
+            <h:message for="login" style="color: #009999"/>
+            <br/>
+<h:outputLabel for="password" value="password user"/>
+<h:inputSecret id="password"  value="#{umb.passwordbean}" class="form-control" required="true" requiredMessage="Renseignez le mot de passe" style=" width: 70%" > 
+                <!-- validatorMessage="entrer 6 caracteres au moins">
+    <f:validateLength minimum="6"/>--> </h:inputSecret>
+            <h:message for="password" style="color: #009999"/>
+            <br/>
+            <br/>
+            
+            <h:outputLabel for="datenaiss" value="date de naissance user"/>
+            <h:inputText id="datenaiss" value="#{umb.datenaissbean}" class="form-control" converterMessage="entrer la date au format YYYY-MM-dd" required="true" requiredMessage="renseignez la date svp" style=" width: 70%">
+                <f:convertDateTime pattern="yyyy-MM-dd"/></h:inputText>
+            <h:message for="datenaiss" style="color: #009999"/>
+            <br/>
+            <br/>
+            
+            <h:outputLabel for="tel" value="Telephone"/>
+            <h:inputText id="tel" value="#{umb.telephonebean}" class="form-control" required="true" requiredMessage="entrer le nom complet du destinataire" style=" width: 70%" > 
+            </h:inputText>
+            <h:message for="tel" style="color: #009999"/>
+            <br/>
+            
+            <h:outputLabel for="email" value="Email user"/>
+            <h:inputText id="email" value="#{umb.emailbean}" class="form-control" required="true" requiredMessage="entrer le login svp" style=" width: 70%" > 
+            </h:inputText>
+            <h:message for="email" style="color: #009999"/>
+            <br/>
+                        <h:outputLabel for="profil" value="Profil user"/>
+                        <h:selectOneMenu id="profil" value="#{umb.profilbean}" class="form-control" required="true" requiredMessage="Select one please" style=" width: 70%">
+                            <f:selectItems value="#{umb.myuser()}"/>
+                        </h:selectOneMenu>
+                        <h:message for="profil" style="color: #009999"/>
+ <br/>
+           
+ <h:commandButton class="btn btn-sm btn-primary btn-lg" action="#{umb.actionsaveUser}" value="Enregistrer" />
+
+            <br/>
+            <br/>
+            <h:commandButton class="btn btn-sm btn-primary btn-lg" value="reset" type="reset"/> <br/>
+            <br/>
+            <h:commandButton class="btn btn-sm btn-primary btn-lg" value="save"/>
+
+        </h:form>
+
+    </h:body>
+</html>

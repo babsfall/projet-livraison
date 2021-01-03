@@ -1,0 +1,92 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<faces-config version="2.2"
+              xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+              xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-facesconfig_2_2.xsd">
+
+    
+     <navigation-rule>
+        <from-view-id>/indexUser.xhtml</from-view-id>
+        
+         <navigation-case>
+            <from-action>#{umb.actionsaveUser()}</from-action>
+            <from-outcome>usera</from-outcome>
+            <to-view-id>/indexUser.xhtml</to-view-id>
+        </navigation-case>
+        
+    </navigation-rule>
+     <navigation-rule>
+        <from-view-id>/index.xhtml</from-view-id>
+        
+         <navigation-case>
+            <from-action>#{livraisonMB.actionsave}</from-action>
+            <from-outcome>livrais</from-outcome>
+            <to-view-id>/index.xhtml</to-view-id>
+        </navigation-case>
+        
+    </navigation-rule>
+    <navigation-rule>
+        <from-view-id>/indexUser.xhtml</from-view-id>
+        
+         <navigation-case>
+            <from-action>userMB.actionsaveUser</from-action>
+            <from-outcome>Usera</from-outcome>
+            <to-view-id>/index.xhtml</to-view-id>
+        </navigation-case>
+        
+    </navigation-rule>
+    
+    <navigation-rule>
+        <from-view-id>/indexEvenement.xhtml</from-view-id>
+        
+         <navigation-case>
+            <from-action>evenementMB.actionsave</from-action>
+            <from-outcome>indexListEvenement</from-outcome>
+            <to-view-id>/indexListEvenement.xhtml</to-view-id>
+        </navigation-case>
+        
+    </navigation-rule>
+    <navigation-rule>
+        <from-view-id>/Login.xhtml</from-view-id>
+        
+         <navigation-case>
+            <from-action>ulmb.actionLogUser</from-action>
+            <from-outcome>indexAccueil</from-outcome>
+            <to-view-id>/indexAccueil.xhtml</to-view-id>
+        </navigation-case>
+        
+    </navigation-rule>
+    
+    <navigation-rule>
+        <from-view-id>/Login.xhtml</from-view-id>
+        
+         <navigation-case>
+            <from-action>ulmb.actionLogUser</from-action>
+            <from-outcome>indexLogin</from-outcome>
+            <to-view-id>/indexLogin.xhtml</to-view-id>
+        </navigation-case>
+        
+    </navigation-rule>
+    
+    <navigation-rule>
+        <from-view-id>/indexReclamation.xhtml</from-view-id>
+        
+         <navigation-case>
+            <from-action>reclamationMB.actionsave</from-action>
+            <from-outcome>indexListReclamation</from-outcome>
+            <to-view-id>/indexListReclamation.xhtml</to-view-id>
+        </navigation-case>
+        
+    </navigation-rule>
+    
+    <navigation-rule>
+        <from-view-id>/indexUserInscription.xhtml</from-view-id>
+        
+         <navigation-case>
+            <from-action>umb.actionsaveUserInsc</from-action>
+            <from-outcome>indexLogin</from-outcome>
+            <to-view-id>/indexLogin.xhtml</to-view-id>
+        </navigation-case>
+        
+    </navigation-rule>
+</faces-config>

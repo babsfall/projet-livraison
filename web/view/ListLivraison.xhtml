@@ -1,0 +1,160 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      >
+    <h:head>
+        <title>Facelet Title</title>
+    </h:head>
+    <h:body>
+<div class="limiter">                                                                                           
+		<div class="container-table100">
+			<div class="wrap-table100">
+				<div class="table100 ver1 m-b-110">
+					<!--<table data-vertable="ver1" style="font-size: 15px">-->
+				
+                                                                     <h:form>
+
+                                        <p:dataTable value="#{livraisonMB.tarifs}" var="o"  lazy="true" paginator="true" rows="50" >
+                                                
+                                                        <p:column>
+                                                            <f:facet name="header">id livraison</f:facet>
+                                                            <h:outputText style="background-color: #111; color: white; font-family: cambria " value="#{o.idlivraison}"/>
+                                         </p:column> 
+                                        
+                                          <p:column>
+                                                  <f:facet name="header">Date livraison</f:facet>
+                                                  <h:outputText value="#{o.datelivraison}"/>
+                                         </p:column>
+                                            <p:column>
+                                                  <f:facet name="header">Nature colis</f:facet>
+                                                  <h:outputText value="#{o.naturecolis}"/>
+                                         </p:column>
+                                            <p:column>
+                                                  <f:facet name="header">Destinataire</f:facet>
+                                                  <h:outputText value="#{o.nomCompletDestinataire}"/>
+                                         </p:column>
+                                            <p:column>
+                                                  <f:facet name="header">adresse de récupération</f:facet>
+                                                  <h:outputText value="#{o.adresserecuperation}"/>
+                                         </p:column>
+                                            <p:column>
+                                                  <f:facet name="header">date de la récuperation</f:facet>
+                                                  <h:outputText value="#{o.dateRecuperation}"/>
+                                         </p:column>
+                                            <p:column>
+                                                  <f:facet name="header">Mode de paiement</f:facet>
+                                                  <h:outputText value="#{o.paiement}"/>
+                                         </p:column>
+                                             <p:column>
+                                                  <f:facet name="header">Statut de paiement</f:facet>
+                                                  <h:outputText value="#{o.statutpaiement}"/>
+                                         </p:column>
+                                            
+                                              <p:column>
+                                                        <f:facet name="header">Action </f:facet>
+                                                        <h:link value="edit">
+                                                            <f:param name="idlivraison" value="#{o.idlivraison}"/>
+                                                            <f:param name="zone" value="edit"/>
+
+                                                        </h:link>
+                                         </p:column>
+
+                                     </p:dataTable>
+                                                                        </h:form>
+
+                                       <!--/ <ui:include src="/view/EditVehicule.xhtml"></ui:include>-->
+
+                                                <br> </br>
+                                                
+<p:accordionPanel style="width: 70% ">
+                            <p:tab title="Edit">
+                                <center>      <h:panelGrid columns="10" cellpadding="20">
+                                                <h:form>	
+                                                 <h:outputLabel for="zone" value="identifiant"/>
+                                                 <h:inputText id="zone" value="#{livraisonMB.idlivraisonbean}" class="form-control" required="true" requiredMessage="Id obligatoire" style=" width: 70%" > 
+                <!-- validatorMessage="entrer 6 caracteres au moins">
+    <f:validateLength minimum="6"/>--> </h:inputText>
+            <h:message for="zone" style="color: #009999"/>
+            <br/>
+            <br/>
+                                                <h:outputLabel for="adresserec" value="Adresse de récupération"/>
+            <h:inputText id="adresserec" value="#{livraisonMB.adresserecuperationbean}" class="form-control" required="true" requiredMessage="entrer l'adresse de récupération svp" style=" width: 70%" > 
+                <!-- validatorMessage="entrer 6 caracteres au moins">
+    <f:validateLength minimum="6"/>--> </h:inputText>
+            <h:message for="adresserec" style="color: #009999"/>
+            <br/>
+            <br/>
+            <tr>
+                <td><h:outputLabel for="daterecup" value="date de récupération colis"/></td><br/>
+                <td><h:inputText id="daterecup" value="#{livraisonMB.dateRecuperationbean}" class="form-control" converterMessage="entrer la date au format YYYY-MM-dd" required="true" requiredMessage="Choisissez la date de récupération svp" style=" width: 70%">
+                <f:convertDateTime pattern="yyyy-MM-dd"/>
+            </h:inputText></td>
+                <td><h:outputLabel for="dateliv" value="date de récupération colis"/></td><br/>
+                <td><h:inputText id="dateliv" value="#{livraisonMB.datelivraisonbean}" class="form-control" converterMessage="entrer la date au format YYYY-MM-dd" required="true" requiredMessage="Choisissez la date de récupération svp" style=" width: 70%">
+                <f:convertDateTime pattern="yyyy-MM-dd"/>
+                </h:inputText></td>
+            <h:message for="dateliv" style="color: #009999"/></tr>
+            <br/>
+            <h:outputLabel for="telrec" value="le telephone pour la récupération"/>
+            <h:inputText id="telrec" value="#{livraisonMB.telephonerrecuperationbean}" class="form-control" required="true" requiredMessage="entrer le téléphone pour la récupération svp" style=" width: 70%" > 
+            </h:inputText>
+            <h:message for="telrec" style="color: #009999"/>
+            <br/>
+
+            <h:outputLabel for="ncdestinataire" value="nom complet destinataire"/>
+            <h:inputText id="ncdestinataire" value="#{livraisonMB.nomCompletDestinatairebean}" class="form-control" required="true" requiredMessage="entrer le nom complet du destinataire" style=" width: 70%" > 
+            </h:inputText>
+            <h:message for="ncdestinataire" style="color: #009999"/>
+            <br/>
+
+            <h:outputLabel for="adresseliv" value="adresse du destinataire"/>
+            <h:inputText id="adresseliv" value="#{livraisonMB.adresselivraisonbean}" class="form-control" required="true" requiredMessage="entrer l'adresse du destinataire" style=" width: 70%" > 
+            </h:inputText>
+            <h:message for="adresseliv" style="color: #009999"/>
+            <br/>
+
+            <h:outputLabel for="naturecolis" value="nature du colis"/>
+            <h:inputText id="naturecolis" value="#{livraisonMB.naturecolisbean}" class="form-control" required="true" requiredMessage="entrer la nature duy colis" style=" width: 70%" > 
+            </h:inputText>
+            <h:message for="naturecolis" style="color: #009999"/>
+            <br/>
+                    
+     
+                        
+                         
+                           <h:outputLabel for="tar" value="Zone pour la livraison"/>
+                           <h:selectOneMenu id="tar"  class="form-control" value="#{livraisonMB.tarificationbean}" required="true" requiredMessage="Select one please" style=" width: 70%">
+                               <f:selectItem itemLabel="#{livraisonMB.tarificationbean}" value="#{livraisonMB.tarificationbean}" itemValue="#{livraisonMB.tarificationbean}"/>
+                               <f:selectItem itemLabel="---------Choose a zone---------" itemValue=""/>
+                               <f:selectItems value="#{livraisonMB.myTarif()}"/>
+                        </h:selectOneMenu>
+                        <h:message for="tar" style="color: #009999"/>
+
+ <br/>
+
+<br/>
+
+
+<br/>
+
+
+
+<br/>
+<p:commandButton class="btn btn-sm btn-primary btn-lg" value="edit" action="#{livraisonMB.EditTarif}"/>
+
+       
+        </h:form>
+                                                       
+		 </h:panelGrid> </center></p:tab>
+                   </p:accordionPanel>	                           
+				</div>
+
+			</div>
+		</div>
+	</div>    </h:body>
+</html>
+

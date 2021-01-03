@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 3 d?c. 2020 16:11:04 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="beans.Evenement" table="evenement" catalog="livraisonbd" optimistic-lock="version">
+        <id name="idevenement" type="java.lang.Integer">
+            <column name="idevenement" />
+            <generator class="identity" />
+        </id>
+        <property name="user" type="java.lang.Integer">
+            <column name="user_idUser" not-null="true" />
+        </property>
+        <property name="natureevenement" type="string">
+            <column name="natureevenement" length="100" not-null="true" />
+        </property>
+        <property name="detailevenement" type="string">
+            <column name="detailevenement" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

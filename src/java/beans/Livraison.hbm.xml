@@ -1,0 +1,60 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 3 d?c. 2020 16:11:04 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="beans.Livraison" table="livraison" catalog="livraisonbd" optimistic-lock="version">
+        <id name="idlivraison" type="java.lang.Integer">
+            <column name="idlivraison" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="tarification" class="beans.Tarification">
+            <column name="tarification_idtarification" not-null="false" default="1" />
+        </many-to-one>
+        <property name="userByUserIdUserClient" type="java.lang.Integer">
+            <column name="user_idUser_client" />
+        </property>
+        <property name="userByUserIduserLivreur" type="java.lang.Integer">
+            <column name="user_iduser_livreur" not-null="true" />
+        </property>
+        <property name="datelivraison" type="date">
+            <column name="datelivraison" length="10" not-null="true" />
+        </property>
+        <property name="adresserecuperation" type="string">
+            <column name="adresserecuperation" length="150" not-null="true" />
+        </property>
+        <property name="dateRecuperation" type="timestamp">
+            <column name="dateRecuperation" length="19" not-null="true" />
+        </property>
+        <property name="telephonerrecuperation" type="string">
+            <column name="telephonerrecuperation" length="45" not-null="true" />
+        </property>
+        <property name="nomCompletDestinataire" type="string">
+            <column name="nomCompletDestinataire" length="200" not-null="true" />
+        </property>
+        <property name="adresselivraison" type="string">
+            <column name="adresselivraison" length="150" not-null="true" />
+        </property>
+        <property name="naturecolis" type="string">
+            <column name="naturecolis" length="200" not-null="true" />
+        </property>
+        <property name="typevehicule" type="string">
+            <column name="typevehicule" length="45" not-null="true" />
+        </property>
+        <property name="statutlivraison" type="string">
+            <column name="statutlivraison" length="45" not-null="true" />
+        </property>
+        <property name="paiement" type="string">
+            <column name="paiement" length="14" not-null="true" />
+        </property>
+        <property name="statutpaiement" type="string">
+            <column name="statutpaiement" length="8" />
+        </property>
+        <set name="reclamations" table="reclamation" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="livraison_idlivraison" not-null="true" />
+            </key>
+            <one-to-many class="beans.Reclamation" />
+        </set>
+    </class>
+</hibernate-mapping>

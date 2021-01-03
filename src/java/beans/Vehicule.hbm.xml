@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 3 d?c. 2020 16:11:04 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="beans.Vehicule" table="vehicule" catalog="livraisonbd" optimistic-lock="version">
+        <id name="idvehicule" type="java.lang.Integer">
+            <column name="idvehicule" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="typeVehicule" class="beans.TypeVehicule">
+            <column name="type_vehicule_idtype_vehicule" not-null="true" />
+        </many-to-one>
+        <property name="user" type="java.lang.Integer">
+            <column name="user_idUser" />
+        </property>
+        <property name="marque" type="string">
+            <column name="marque" length="50" not-null="true" />
+        </property>
+        <property name="modele" type="string">
+            <column name="modele" length="45" not-null="true" />
+        </property>
+        <property name="dateAchat" type="date">
+            <column name="dateAchat" length="10" not-null="true" />
+        </property>
+        <property name="dateRebus" type="date">
+            <column name="dateRebus" length="10" />
+        </property>
+    </class>
+</hibernate-mapping>

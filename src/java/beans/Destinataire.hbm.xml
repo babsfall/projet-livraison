@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 3 d?c. 2020 16:11:04 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="beans.Destinataire" table="destinataire" catalog="livraisonbd" optimistic-lock="version">
+        <id name="iddestinataire" type="java.lang.Integer">
+            <column name="iddestinataire" />
+            <generator class="identity" />
+        </id>
+        <property name="user" type="java.lang.Integer">
+            <column name="user_idUser" not-null="true" />
+        </property>
+        <property name="nomCompletDestinataire" type="string">
+            <column name="nomCompletDestinataire" length="200" not-null="true" />
+        </property>
+        <property name="adresseDestinataire" type="string">
+            <column name="adresseDestinataire" not-null="true" />
+        </property>
+        <property name="telephoneDestinataire" type="string">
+            <column name="telephoneDestinataire" length="45" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

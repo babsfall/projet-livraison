@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 3 d?c. 2020 16:11:04 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="beans.Tarification" table="tarification" catalog="livraisonbd" optimistic-lock="version">
+        <id name="idtarification" type="java.lang.Integer">
+            <column name="idtarification" />
+            <generator class="identity" />
+        </id>
+        <property name="zone" type="string">
+            <column name="zone" length="200" not-null="true" />
+        </property>
+        <property name="prix" type="int">
+            <column name="Prix" not-null="true" />
+        </property>
+        <set name="livraisons" table="livraison" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="tarification_idtarification" not-null="true" />
+            </key>
+            <one-to-many class="beans.Livraison" />
+        </set>
+    </class>
+</hibernate-mapping>

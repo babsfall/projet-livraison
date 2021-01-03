@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 3 d?c. 2020 16:11:04 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="beans.TypeVehicule" table="type_vehicule" catalog="livraisonbd" optimistic-lock="version">
+        <id name="idtypeVehicule" type="java.lang.Integer">
+            <column name="idtype_vehicule" />
+            <generator class="identity" />
+        </id>
+        <property name="nomvehicule" type="string">
+            <column name="nomvehicule" length="100" not-null="true" />
+        </property>
+        <set name="vehicules" table="vehicule" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="type_vehicule_idtype_vehicule" not-null="true" />
+            </key>
+            <one-to-many class="beans.Vehicule" />
+        </set>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,39 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+         xmlns:p="http://primefaces.org/ui"
+    xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+    xmlns:f="http://java.sun.com/jsf/core"
+>
+    <h:head>
+        <title>Facelet Title</title>
+    </h:head>
+    <h:body>
+
+        <h:form id="master">
+           
+        <p:commandButton value="View"
+                update=":detail" oncomplete="PF('detail').show()" />
+</h:form>
+
+<p:dialog id="detail" widgetVar="detail" dynamic="true" visible="false">
+    <h:form>
+        <h:inputText id="test"/>
+        <p:button value="Close" onclick="PF('detail').hide(); return false" />
+        <p:commandButton value="Save" />
+    </h:form>
+</p:dialog>
+<h:panelGroup id="doBtnPG">
+
+    <p:commandButton value="Do" rendered="#{headerController.showDo}" 
+            action="#{headerController.doAction}" update="unDoBtnPG"/>
+</h:panelGroup>
+
+<h:panelGroup id="unDoBtnPG">
+
+    <p:commandButton value="Un Do"  rendered="#{headerController.showUndo}" 
+            action="#{headerController.undoAction}" update="doBtnPG"/>
+</h:panelGroup>
+    </h:body>
+</html>

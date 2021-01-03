@@ -1,0 +1,69 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 3 d?c. 2020 16:11:04 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="beans.User" table="user" catalog="livraisonbd" optimistic-lock="version">
+        <id name="idUser" type="java.lang.Integer">
+            <column name="idUser" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="profil" class="beans.Profil">
+            <column name="profil_idprofil" not-null="false" default="1" />
+        </many-to-one>
+        <property name="nomUser" type="string">
+            <column name="nomUser" length="50" not-null="true" />
+        </property>
+        <property name="prenomUser" type="string">
+            <column name="prenomUser" length="100" not-null="true" />
+        </property>
+        <property name="login" type="string">
+            <column name="login" length="45" not-null="true" />
+        </property>
+        <property name="password" type="string">
+            <column name="password" length="45" not-null="true" unique="true" />
+        </property>
+        <property name="datenaiss" type="date">
+            <column name="datenaiss" length="10" not-null="true" />
+        </property>
+        <property name="telephone" type="int">
+            <column name="telephone" not-null="true" />
+        </property>
+        <property name="email" type="string">
+            <column name="email" length="150" />
+        </property>
+        <property name="statutLivreur" type="string">
+            <column name="statutLivreur" length="10" />
+        </property>
+        <set name="vehicules" table="vehicule" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="user_idUser" />
+            </key>
+            <one-to-many class="beans.Vehicule" />
+        </set>
+        <set name="destinataires" table="destinataire" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="user_idUser" not-null="true" />
+            </key>
+            <one-to-many class="beans.Destinataire" />
+        </set>
+        <set name="evenements" table="evenement" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="user_idUser" not-null="true" />
+            </key>
+            <one-to-many class="beans.Evenement" />
+        </set>
+        <set name="livraisonsForUserIdUserClient" table="livraison" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="user_idUser_client" />
+            </key>
+            <one-to-many class="beans.Livraison" />
+        </set>
+        <set name="livraisonsForUserIduserLivreur" table="livraison" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="user_iduser_livreur" />
+            </key>
+            <one-to-many class="beans.Livraison" />
+        </set>
+    </class>
+</hibernate-mapping>
